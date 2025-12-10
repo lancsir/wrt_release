@@ -60,12 +60,13 @@ apply_config() {
     \cp -f "$CONFIG_FILE" "$BASE_PATH/$BUILD_DIR/.config"
     
     # 如果是 ipq60xx 或 ipq807x 平台，则追加 NSS 配置
-    if grep -qE "(ipq60xx|ipq807x|re-ss-01)" "$BASE_PATH/$BUILD_DIR/.config"; then
+    if grep -qE "(ipq60xx|ipq807x)" "$BASE_PATH/$BUILD_DIR/.config" &&
+        ! grep -q "CONFIG_GIT_MIRROR" "$BASE_PATH/$BUILD_DIR/.config"; then
         cat "$BASE_PATH/deconfig/nss.config" >> "$BASE_PATH/$BUILD_DIR/.config"
     fi
 
     # 追加代理配置
-    # cat "$BASE_PATH/deconfig/proxy.config" >> "$BASE_PATH/$BUILD_DIR/.config"
+    cat "$BASE_PATH/deconfig/proxy.config" >> "$BASE_PATH/$BUILD_DIR/.config"
 }
 
 REPO_URL=$(read_ini_by_key "REPO_URL")
