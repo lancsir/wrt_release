@@ -14,8 +14,6 @@ on:
           - cmcc_rax3000m_immwrt
           - gemtek_w1701k_immwrt
           - jdcloud_ax6000_immwrt
-          - jdcloud_re-ss-01_libwrt
-          - jdcloud_re-ss-01_immwrt
           - jdcloud_ipq60xx_immwrt
           - jdcloud_ipq60xx_libwrt
           - linksys_mx4x00_immwrt
@@ -28,6 +26,7 @@ on:
           - zn_m2_libwrt
           - x64_immwrt
           - jdcloud_ipq60xx_libwrt_re_ss_01
+          - jdcloud_ipq60xx_immwrt_re_ss_01
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
